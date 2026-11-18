@@ -14,7 +14,7 @@ Loan/
 ├── Loan_Classifier_Comparison_Report.html# 🌐 HTML version of the report
 ├── Loan_Approval_Google_Colab.ipynb      # 🌟 1-Click Google Colab Notebook (Complete Pipeline)
 ├── Data/
-│   ├── loan.csv                          # Dataset (3,000 rows × 13 columns)
+│   ├── loan.csv                          # Dataset (10,000 rows × 13 columns)
 │   └── loan_original_614.csv             # Original baseline dataset (614 rows)
 ├── models/
 │   ├── loan_model_nb.pkl                 # Model 1: Naive Bayes Pipeline (GaussianNB)
@@ -36,13 +36,13 @@ Loan/
 
 ---
 
-## 🏆 Model Performance Benchmark (3,000 Sample Scale)
+## 🏆 Model Performance Benchmark (10,000 Sample Scale)
 
 | Model | Test Accuracy | ROC-AUC | Precision | Recall | F1-Score | Interpretability |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Decision Tree (`max_depth=4`)** ⭐ | **87.00%** | 79.53% | **85.85%** | **98.65%** | **91.81%** | **Very High** (Direct Visual Logic & Real $ Splits) |
-| **SVM (RBF Kernel)** | 86.67% | **80.75%** | 85.38% | **98.87%** | 91.63% | Geometric (Hyperplane / Black Box) |
-| **Naive Bayes (GaussianNB)** | 86.17% | 79.91% | 85.57% | 97.74% | 91.25% | Probabilistic (Feature Independence) |
+| **Decision Tree (`max_depth=4`)** ⭐ | **88.45%** | **83.11%** | **87.83%** | **98.05%** | **92.66%** | **Very High** (Direct Visual Logic & Real $ Splits) |
+| **SVM (RBF Kernel)** | **88.50%** | 82.37% | 87.79% | **98.18%** | **92.70%** | Geometric (Hyperplane / Black Box) |
+| **Naive Bayes (GaussianNB)** | 87.40% | 81.72% | 87.72% | 96.57% | 91.93% | Probabilistic (Feature Independence) |
 
 ---
 
