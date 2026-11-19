@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import joblib
@@ -5,12 +6,16 @@ import joblib
 # Set page title and layout
 st.set_page_config(page_title="Loan Approval Predictor", page_icon="🏦", layout="centered")
 
+# Robust path handling for model loading
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODELS_DIR = os.path.join(BASE_DIR, 'models')
+
 # Load the three saved models
 @st.cache_resource
 def load_models():
-    nb = joblib.load('models/loan_model_nb.pkl')
-    svm = joblib.load('models/loan_model_svm.pkl')
-    dt = joblib.load('models/loan_model_dt.pkl')
+    nb = joblib.load(os.path.join(MODELS_DIR, 'loan_model_nb.pkl'))
+    svm = joblib.load(os.path.join(MODELS_DIR, 'loan_model_svm.pkl'))
+    dt = joblib.load(os.path.join(MODELS_DIR, 'loan_model_dt.pkl'))
     return nb, svm, dt
 
 nb_model, svm_model, dt_model = load_models()
@@ -127,18 +132,18 @@ if submit_button:
 
 # --- Model Training Metrics Section ---
 st.divider()
-with st.expander("ℹ️ View Model Training Performance (from Notebook)"):
-    st.write("Performance achieved on the 20% test data:")
+with st.expander("ℹ️ View Model Training Performance (10,000 Applicants Benchmark)"):
+    st.write("Performance evaluated on 2,000 holdout test applicants:")
     
     metrics_data = {
         "Model": ["Naive Bayes", "SVM (RBF)", "Decision Tree (max_depth=4)"],
-        "Accuracy": ["84.55%", "85.37%", "84.55%"],
-        "ROC-AUC": ["80.77%", "83.03%", "70.60%"],
-        "Precision": ["83.67%", "83.17%", "82.35%"],
-        "Recall": ["96.47%", "98.82%", "98.82%"],
-        "F1-Score": ["89.62%", "90.32%", "89.84%"],
-        "Interpretability": ["Probabilistic", "Black Box / Kernel Hyperplane", "Direct Visual Logic (Tree)"]
+        "Accuracy": ["87.40%", "88.50%", "88.45%"],
+        "ROC-AUC": ["81.72%", "82.55%", "83.11%"],
+        "Precision": ["87.72%", "87.79%", "87.83%"],
+        "Recall": ["96.57%", "98.18%", "98.05%"],
+        "F1-Score": ["91.93%", "92.70%", "92.66%"],
+        "Interpretability": ["Probabilistic (Bayes Rule)", "Black Box / Kernel Hyperplane", "Direct Visual Logic (Tree)"]
     }
     
     st.table(pd.DataFrame(metrics_data).set_index("Model"))
-    st.caption("SVM achieves highest Accuracy (85.37%) and ROC-AUC (83.03%), while Decision Tree provides full visual interpretability.")
+    st.caption("SVM and Decision Tree achieve top performance (~88.5% Accuracy), while Decision Tree provides complete visual explainability.")
