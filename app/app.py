@@ -33,9 +33,9 @@ with st.form("loan_form"):
         property_area = st.selectbox("Property Area", ["Urban", "Semiurban", "Rural"])
         
     with col2:
-        applicant_income = st.number_input("Applicant Income (Monthly)", min_value=0, value=5000, step=100)
-        coapplicant_income = st.number_input("Coapplicant Income (Monthly)", min_value=0, value=0, step=100)
-        loan_amount = st.number_input("Loan Amount (in thousands)", min_value=1, value=150, step=10)
+        applicant_income = st.number_input("Applicant Income (₹ Monthly)", min_value=0, value=5000, step=100)
+        coapplicant_income = st.number_input("Coapplicant Income (₹ Monthly)", min_value=0, value=0, step=100)
+        loan_amount = st.number_input("Loan Amount (in ₹ Thousands)", min_value=1, value=150, step=10)
         loan_term = st.number_input("Loan Amount Term (in months)", min_value=12, value=360, step=12)
         credit_history = st.selectbox("Credit History", [("Good (1.0)", 1.0), ("Bad (0.0)", 0.0)], format_func=lambda x: x[0])
 

@@ -122,13 +122,13 @@ def run_prediction_cli(nb_model, svm_model, dt_model):
     )
 
     # 6. Applicant Income
-    applicant_income = get_number("6. Applicant Income ($/month)", default_val=5000, cast_type=float)
+    applicant_income = get_number("6. Applicant Income (₹/month)", default_val=5000, cast_type=float)
 
     # 7. Coapplicant Income
-    coapplicant_income = get_number("7. Coapplicant Income ($/month)", default_val=0, cast_type=float)
+    coapplicant_income = get_number("7. Coapplicant Income (₹/month)", default_val=0, cast_type=float)
 
     # 8. Loan Amount (in thousands)
-    loan_amount = get_number("8. Loan Amount (e.g. 150 for $150k or 10000 for $10k)", default_val=150, cast_type=float)
+    loan_amount = get_number("8. Loan Amount (in thousands ₹, e.g. 150 for ₹1,50,000)", default_val=150, cast_type=float)
     # Smart auto-scaling: if user entered full dollars (>= 1000), convert to thousands
     if loan_amount >= 1000:
         loan_amount = loan_amount / 1000.0
@@ -175,8 +175,8 @@ def run_prediction_cli(nb_model, svm_model, dt_model):
     # Print summary of input
     print("\n" + "-" * 65)
     print(f" Profile: {gender}, Married: {married}, Dependents: {dependents}, {education}")
-    print(f" Income : ${applicant_income:,.0f} + ${coapplicant_income:,.0f} / mo")
-    print(f" Loan   : ${loan_amount*1000:,.0f} for {int(loan_term)} months ({int(loan_term//12)} yrs)")
+    print(f" Income : ₹{applicant_income:,.0f} + ₹{coapplicant_income:,.0f} / mo")
+    print(f" Loan   : ₹{loan_amount*1000:,.0f} for {int(loan_term)} months ({int(loan_term//12)} yrs)")
     print(f" Credit : {'Good (1.0)' if credit_choice == 1.0 else 'Bad / Default (0.0)'}, Area: {property_area}")
     print("-" * 65)
 

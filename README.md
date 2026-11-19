@@ -40,7 +40,7 @@ Loan/
 
 | Model | Test Accuracy | ROC-AUC | Precision | Recall | F1-Score | Interpretability |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Decision Tree (`max_depth=4`)** ⭐ | **88.45%** | **83.11%** | **87.83%** | **98.05%** | **92.66%** | **Very High** (Direct Visual Logic & Real $ Splits) |
+| **Decision Tree (`max_depth=4`)** ⭐ | **88.45%** | **83.11%** | **87.83%** | **98.05%** | **92.66%** | **Very High** (Direct Visual Logic & Real ₹ Splits) |
 | **SVM (RBF Kernel)** | **88.50%** | 82.37% | 87.79% | **98.18%** | **92.70%** | Geometric (Hyperplane / Black Box) |
 | **Naive Bayes (GaussianNB)** | 87.40% | 81.72% | 87.72% | 96.57% | 91.93% | Probabilistic (Feature Independence) |
 
