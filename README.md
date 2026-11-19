@@ -6,6 +6,13 @@ An end-to-end Machine Learning system for predicting loan approval decisions usi
 
 ---
 
+---
+
+## 📊 Dataset Provenance & Original Source
+- **Original Source**: **Kaggle** & **Analytics Vidhya** (*[Loan Prediction Practice Problem](https://datahack.analyticsvidhya.com/contest/practice-problem-loan-prediction-iii/)* / *[Kaggle Dataset](https://www.kaggle.com/datasets/altruistdelphi01/loan-prediction-problem-dataset)*).
+- **Domain**: Retail Banking Credit Risk Underwriting (Indian Banking Context).
+- **Scale**: 10,000 applicant applications across 11 predictive financial and demographic attributes (salaries, loan amounts, credit histories, property locations).
+
 ## 📁 Project Structure
 
 ```
