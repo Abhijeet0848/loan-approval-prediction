@@ -122,13 +122,13 @@ def run_prediction_cli(nb_model, svm_model, dt_model):
     )
 
     # 6. Applicant Income
-    applicant_income = get_number("6. Applicant Income (₹/month)", default_val=5000, cast_type=float)
+    applicant_income = get_number("6. Applicant Income (₹/month)", default_val=50000, cast_type=float)
 
     # 7. Coapplicant Income
-    coapplicant_income = get_number("7. Coapplicant Income (₹/month)", default_val=0, cast_type=float)
+    coapplicant_income = get_number("7. Coapplicant Income (₹/month)", default_val=140000, cast_type=float)
 
     # 8. Loan Amount (in thousands)
-    loan_amount = get_number("8. Loan Amount (in thousands ₹, e.g. 150 for ₹1,50,000)", default_val=150, cast_type=float)
+    loan_amount = get_number("8. Loan Amount (in ₹ Thousands, e.g. 1400 for ₹14 Lakhs)", default_val=1400, cast_type=float)
     # Smart auto-scaling: if user entered full dollars (>= 1000), convert to thousands
     if loan_amount >= 1000:
         loan_amount = loan_amount / 1000.0
